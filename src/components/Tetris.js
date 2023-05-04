@@ -1,25 +1,18 @@
 import React from 'react';
-import Stage from './Stage';
-import Display from './Display';
-import StartButton from './StartButton';
+import "./styles/Tetris.css"
+import Board from "./Board"
+import { useBoard } from "../hooks/useBoard"
+// import Stage from './Stage';
+// import Display from './Display';
+// import StartButton from './StartButton';
 // import { createStage } from '../gameHelpers';
 // import { StyledTetrisWrapper, StyledTetris} from './styles/StyledTetris';
 
 
-function Tetris () {
-  return (
-   <div>
-      {/* <Stage stage={createStage()}/> */}
-        <aside>
-          <div>
-            <Display text="Score" />
-            <Display text="Rows" />
-            <Display text="Level" />
-          </div>
-          <StartButton />
-        </aside>
-    </div>
-  );
+function Tetris ({rows, columns, setGameOver}) {
+    const [board, setBoard] = useBoard({rows, columns});
+
+  return <Board board={board}/>
 }
 
 export default Tetris;
