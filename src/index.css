@@ -1,8 +1,23 @@
-body {
+/* body {
     margin: 0;
 }
 
 @font-face {
     font-family: 'Pixel' ;
     src: url('./fonts/Pixel-LCD-7.woff') format('woff');
+} */
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+.App {
+    font-family: sans-serif;
+    color: #fff;
+    text-align: center;
+    background-color: #406;
+    height: 100vh;
+    padding: 20px;
+} */
