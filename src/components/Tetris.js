@@ -4,21 +4,21 @@ import Board from "./Board";
 import { useBoard } from "../hooks/useBoard";
 import GameStats from "./GameStats";
 import  { useGameStats } from "../hooks/useGameStats";
-// import Stage from './Stage';
-// import Display from './Display';
-// import StartButton from './StartButton';
-// import { createStage } from '../gameHelpers';
-// import { StyledTetrisWrapper, StyledTetris} from './styles/StyledTetris';
+import Previews from "./Previews";
+import { usePlayer } from "../hooks/usePlayer";
+
 
 
 function Tetris ({rows, columns, setGameOver}) {
     const [board, setBoard] = useBoard({rows, columns});
     const [gameStats, addLinesCleared] = useGameStats();
-
+    const [player, setPlayer, resetPlayer] = usePlayer();
+   
     return (
       <div className='Tetris'>
-        <Board board={board} />;
+        <Board board={board} />
         <GameStats gameStats={gameStats} />
+        <Previews tetrominoes = {player.tetrominoes} />
       </div>
     )
   };
