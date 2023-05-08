@@ -1,7 +1,7 @@
 import React from 'react';
 import {defaultCell} from "./Cell"
 
-function BuildBoard({ rows, columns }) {
+export const buildBoard = ({ rows, columns }) => {
 const buildRows = Array.from({ length: rows}, () =>
   Array.from({length : columns}, () => ({...defaultCell}))
 );
@@ -13,4 +13,4 @@ const buildRows = Array.from({ length: rows}, () =>
 
 }
 
-export default BuildBoard;
+

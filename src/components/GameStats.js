@@ -14,7 +14,7 @@ function GameStats({gameStats}) {
       <li> Points</li>
       <li className='value'> {points} </li>
     </ul>
-  );
+  )
 };
 
 export default React.memo(GameStats);
