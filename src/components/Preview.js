@@ -22,6 +22,7 @@ const Preview = ({ tetromino, index }) => {
   return (
     <div className="Preview" style={style}>
       <div className="Preview-board">
+        {/* preview board being rendered */}
         {board.rows.map((row, y) =>
           row.map((cell, x) => (
             <BoardCell key={x * board.size.columns + x} cell={cell} />
