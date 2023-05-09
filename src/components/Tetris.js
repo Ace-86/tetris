@@ -10,9 +10,15 @@ import { usePlayer } from "../hooks/usePlayer";
 
 
 function Tetris ({rows, columns, setGameOver}) {
-    const [board, setBoard] = useBoard({rows, columns});
-    const [gameStats, addLinesCleared] = useGameStats();
-    const [player, setPlayer, resetPlayer] = usePlayer();
+  const [player, setPlayer, resetPlayer] = usePlayer();
+  const [gameStats, addLinesCleared] = useGameStats();
+    const [board, setBoard] = useBoard({
+      rows, 
+      columns,
+      player,
+      resetPlayer,
+      addLinesCleared
+    });
    
     return (
       <div className='Tetris'>
