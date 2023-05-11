@@ -44,7 +44,7 @@ export const hasCollision = ({ board, position, shape}) => {
   for (let y= 0; y < shape.length; y++) {
     const row = y + position.row;
 
-    for(let x = 0; x < shape[y].length; x++) {
+    for (let x = 0; x < shape[y].length; x++) {
       if (shape[y][x]) {
         const column = x + position.column;
 
@@ -68,9 +68,9 @@ export const isWithinBoard = ({ board, position, shape}) => {
     for (let x = 0; x < shape[y].length; x++) {
       if (shape[y][x]) {
         const column = x + position.column;
-        const isValidRotation = board.row[row] && board.rows[row][column];
+        const isValidPosition = board.rows[row] && board.rows[row][column];
       
-      if (!isValidRotation) return false;
+      if (!isValidPosition) return false;
       }
     }
   }

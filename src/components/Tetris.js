@@ -31,6 +31,7 @@ function Tetris ({rows, columns, setGameOver}) {
         <GameController
           board= {board}
           gameStats={gameStats}
+          player={player}
           setGameOver={setGameOver}
           setPlayer={setPlayer}
           />

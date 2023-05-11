@@ -5,7 +5,7 @@ import { playerController } from "../utilities/PlayerController";
 
 const GameController = ({
     board,
-    GameStats,
+    gameStats,
     player,
     setGameOver,
     setPlayer
@@ -13,7 +13,7 @@ const GameController = ({
     const onKeyUp = ({ code }) => {
         const action = actionForKey(code);
        
-        if (code === Action.Quit) {
+        if (action === Action.Quit) {
         setGameOver(true);
         }
     };
