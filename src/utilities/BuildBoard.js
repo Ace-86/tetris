@@ -23,14 +23,12 @@ const findDropPosition = ({ board, position, shape}) => {
     const delta = { row: i, column: 0};
     const result = movePlayer({ delta, position, shape, board});
     const { collided } = result;
+
     if (collided) {
       break;
     }
-
     row = position.row + i;
-
   }
-
   return { ...position, row}
 }
 
@@ -46,7 +44,7 @@ export const nextBoard = ({
     row.map((cell) => (cell.occupied ? cell : {...defaultCell}))
   );
 
-  const dropPositon = findDropPosition({
+  const dropPosition = findDropPosition({
     board,
     position,
     shape: tetromino.shape
@@ -59,7 +57,7 @@ export const nextBoard = ({
   rows = transferToBoard({
     className,
     isOccupied: player.isFastDropping,
-    position: findDropPosition,
+    position: dropPosition,
     rows,
     shape: tetromino.shape
   });
@@ -72,11 +70,24 @@ export const nextBoard = ({
       rows,
       shape: tetromino.shape
     });
-
   }
 
+const blankRow = rows[0].map((_) => ({ ...defaultCell}));
+  let linesCleared = 0;
+  rows = rows.reduce((acc, row) => {
+    if ( row.every((column) => column.occupied)) {
+      linesCleared++;
+      acc.unshift({...blankRow});
+    } else {
+      acc.push(row);
+    }
+    return acc;
+  }, []);
 
+  if (linesCleared > 0) {
 
+    addLinesCleared(linesCleared);
+  }
 
   if (player.collided || player.isFastDropping) {
     resetPlayer();
