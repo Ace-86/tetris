@@ -14,7 +14,8 @@
 
 .GameStats__right {
     right: 0;
-    bottom: 0;
+    top: 10vh;
+    left: 65vw;
     text-align: left;
 }
 
